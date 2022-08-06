@@ -39,6 +39,17 @@ add_ppa() {
   sudo add-apt-repository -y ppa:$1
 }
 
+setup_gitconfig() {
+  if ! grep --quiet "path=$dotfiles_dir/gitconfig" "$HOME/.gitconfig"; then
+  cat << EOF >> "$HOME/.gitconfig"
+[include]
+  path=$dotfiles_dir/gitconfig
+EOF
+  else
+    echo "Skipping gitconfig"
+  fi
+}
+
 main() {
   (
   cd "$dotfiles_dir"
@@ -54,6 +65,14 @@ main() {
   snap_install node
   snap_install rustup
   snap_install starship
+
+  setup_gitconfig
+
+  # Sometimes machines come with an existing bashrc file. We can completely overwrite it.
+  rm -rf $HOME/.bashrc
+
+  stow -R home -t "$HOME"
+  stow -R xdg-configs -t "$HOME/.config"
 
   setup_nvim_config
   )

@@ -1,0 +1,13 @@
+# Environment
+export LANG=en_US.UTF-8
+
+export EDITOR='nvim'
+export GIT_EDITOR='nvim'
+
+export GIT_DUET_GLOBAL=1
+
+# Golang
+export GOPATH="${HOME}/go"
+export PATH=${GOPATH}/bin:${PATH}
+
+eval "$(starship init bash)"
