@@ -6,6 +6,8 @@ export GIT_EDITOR='nvim'
 
 export GIT_DUET_GLOBAL=1
 
+export PATH=${HOME}/bin:${PATH}
+
 # Golang
 export GOPATH="${HOME}/go"
 export PATH=${GOPATH}/bin:${PATH}
