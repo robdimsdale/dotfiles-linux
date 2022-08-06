@@ -1,0 +1,14 @@
+bat
+coreutils
+curl
+findutils
+fd-find
+fzf
+htop
+jq
+neovim
+python3
+python3-pip
+ripgrep
+stow
+tmux

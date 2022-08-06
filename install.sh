@@ -48,23 +48,10 @@ main() {
   sudo apt -y upgrade
   sudo apt -y autoremove
 
-  apt_install bat
-  apt_install coreutils
-  apt_install curl
-  apt_install findutils
-  apt_install fd-find
-  apt_install fzf
-  apt_install htop
-  apt_install jq
-  apt_install neovim
-  apt_install python3
-  apt_install python3-pip
-  apt_install ripgrep
-  apt_install tmux
+  apt_install $(tr '\n' ' ' < ./apt_packages)
 
   snap_install go
   snap_install node
-  #snap_install nvim
   snap_install rustup
   snap_install starship
 
