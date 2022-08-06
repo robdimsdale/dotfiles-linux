@@ -54,6 +54,10 @@ install_git_duet() {
   go install github.com/git-duet/git-duet/...@latest
 }
 
+setup_docker() {
+   sudo usermod -a -G docker $(whoami)
+}
+
 main() {
   (
   cd "$dotfiles_dir"
@@ -82,6 +86,8 @@ main() {
   stow -R xdg-configs -t "$HOME/.config"
 
   setup_nvim_config
+
+  setup_docker
   )
 }
 
