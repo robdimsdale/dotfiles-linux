@@ -50,6 +50,10 @@ EOF
   fi
 }
 
+install_git_duet() {
+  go install github.com/git-duet/git-duet/...@latest
+}
+
 main() {
   (
   cd "$dotfiles_dir"
@@ -65,6 +69,8 @@ main() {
     [[ -z "${pkg}" ]] && continue
     snap_install "${pkg}"
   done < ./snap_packages
+
+  install_git_duet
 
   setup_gitconfig
 
