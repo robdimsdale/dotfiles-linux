@@ -23,13 +23,13 @@ clone() {
 
 setup_nvim_config() {
   python3 -m pip install --upgrade pynvim
+  cargo install tree-sitter-cli
 
   clone \
     "https://github.com/luan/nvim" \
     "$HOME/.config/nvim"
 
-  nvim -c 'GoInstallBinaries' -c 'quitall'
-  cargo install tree-sitter-cli
+  #nvim -c 'GoInstallBinaries' -c 'quitall'
   #nvim -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
   #nvim -c 'UpdateRemotePlugins' -c 'quitall'
   #nvim --headless -c 'TSInstallSync all' -c 'quitall'
@@ -53,6 +53,10 @@ EOF
 
 install_git_duet() {
   go install github.com/git-duet/git-duet/...@latest
+}
+
+setup_bin() {
+  mkdir -p "$HOME/bin"
 }
 
 setup_rust() {
@@ -79,6 +83,8 @@ main() {
     snap_install "${pkg}"
   done < ./snap_packages
 
+
+  setup_docker
   install_git_duet
 
   setup_gitconfig
@@ -90,11 +96,9 @@ main() {
   stow -R home -t "$HOME"
   stow -R xdg-configs -t "$HOME/.config"
 
+  setup_bin
   setup_rust
-
   setup_nvim_config
-
-  setup_docker
   )
 }
 
