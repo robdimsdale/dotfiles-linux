@@ -29,10 +29,10 @@ setup_nvim_config() {
     "$HOME/.config/nvim"
 
   nvim -c 'GoInstallBinaries' -c 'quitall'
-  nvim -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
-  nvim -c 'UpdateRemotePlugins' -c 'quitall'
+  #nvim -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+  #nvim -c 'UpdateRemotePlugins' -c 'quitall'
   #nvim --headless -c 'TSInstallSync all' -c 'quitall'
-  nvim -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+  #nvim -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 }
 
 add_ppa() {
