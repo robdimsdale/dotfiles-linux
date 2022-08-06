@@ -71,6 +71,7 @@ main() {
   # Sometimes machines come with an existing bashrc file. We can completely overwrite it.
   rm -rf $HOME/.bashrc
 
+  mkdir -p "$HOME/.config"
   stow -R home -t "$HOME"
   stow -R xdg-configs -t "$HOME/.config"
 
