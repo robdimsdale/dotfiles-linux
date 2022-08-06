@@ -29,6 +29,7 @@ setup_nvim_config() {
     "$HOME/.config/nvim"
 
   nvim -c 'GoInstallBinaries' -c 'quitall'
+  cargo install tree-sitter-cli
   #nvim -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
   #nvim -c 'UpdateRemotePlugins' -c 'quitall'
   #nvim --headless -c 'TSInstallSync all' -c 'quitall'
@@ -52,6 +53,10 @@ EOF
 
 install_git_duet() {
   go install github.com/git-duet/git-duet/...@latest
+}
+
+setup_rust() {
+  rustup default stable
 }
 
 setup_docker() {
@@ -84,6 +89,8 @@ main() {
   mkdir -p "$HOME/.config"
   stow -R home -t "$HOME"
   stow -R xdg-configs -t "$HOME/.config"
+
+  setup_rust
 
   setup_nvim_config
 
