@@ -1,6 +1,7 @@
 bat
 coreutils
 curl
+docker
 findutils
 fd-find
 fzf
