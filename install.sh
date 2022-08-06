@@ -61,10 +61,10 @@ main() {
 
   apt_install $(tr '\n' ' ' < ./apt_packages)
 
-  snap_install go
-  snap_install node
-  snap_install rustup
-  snap_install starship
+  while read -r pkg; do
+    [[ -z "${pkg}" ]] && continue
+    snap_install "${pkg}"
+  done < ./snap_packages
 
   setup_gitconfig
 
