@@ -10,4 +10,7 @@ export GIT_DUET_GLOBAL=1
 export GOPATH="${HOME}/go"
 export PATH=${GOPATH}/bin:${PATH}
 
+# Rust
+export PATH=${HOME}/.cargo/bin:${PATH}
+
 eval "$(starship init bash)"
